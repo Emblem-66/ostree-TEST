@@ -1,0 +1,14 @@
+name: Test
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@main
+    - name: Build Test Image
+      run: podman build -f Containerfile
